@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -48,119 +48,66 @@
       z-index: 9990;
     }
 
-    #matrix-canvas {
-      position: fixed; inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.55;
-    }
-
-    #trail-canvas {
-      position: fixed; inset: 0;
-      pointer-events: none;
-      z-index: 2;
-    }
+    #matrix-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.55; }
+    #trail-canvas  { position: fixed; inset: 0; pointer-events: none; z-index: 2; }
 
     #cursor {
-      position: fixed;
-      width: 14px; height: 14px;
+      position: fixed; width: 14px; height: 14px;
       border: 1px solid var(--teal);
       transform: translate(-50%,-50%) rotate(45deg);
-      pointer-events: none;
-      z-index: 9999;
+      pointer-events: none; z-index: 9999;
       transition: width .12s, height .12s, border-color .12s;
       mix-blend-mode: screen;
     }
     #cursor-dot {
-      position: fixed;
-      width: 3px; height: 3px;
+      position: fixed; width: 3px; height: 3px;
       background: var(--teal);
       transform: translate(-50%,-50%);
-      pointer-events: none;
-      z-index: 9999;
-      mix-blend-mode: screen;
+      pointer-events: none; z-index: 9999; mix-blend-mode: screen;
     }
     #cursor.hover { width: 32px; height: 32px; border-color: var(--red); }
 
-    .container {
-      max-width: 740px;
-      margin: 0 auto;
-      padding: 0 28px;
-      position: relative;
-      z-index: 3;
-    }
+    .container { max-width: 740px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 3; }
 
     /* ─── NAV ─── */
     nav {
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border);
+      padding: 20px 0; border-bottom: 1px solid var(--border);
       position: sticky; top: 0;
-      background: rgba(16,5,8,0.94);
-      backdrop-filter: blur(12px);
-      z-index: 100;
+      background: rgba(16,5,8,0.94); backdrop-filter: blur(12px); z-index: 100;
       box-shadow: 0 1px 0 var(--border), 0 4px 32px rgba(255,32,80,0.1);
     }
     nav .inner { display: flex; align-items: center; justify-content: space-between; }
     .nav-logo {
-      font-family: var(--display);
-      font-size: 12px; font-weight: 700;
-      color: var(--red);
-      text-decoration: none;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+      font-family: var(--display); font-size: 12px; font-weight: 700;
+      color: var(--red); text-decoration: none; letter-spacing: 0.16em; text-transform: uppercase;
       text-shadow: 0 0 20px rgba(255,32,80,0.7), 0 0 48px rgba(255,32,80,0.3);
     }
     .nav-links { display: flex; gap: 24px; list-style: none; }
     .nav-links a {
-      font-size: 10px; color: var(--text-mid);
-      text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase;
-      transition: color .15s;
-      position: relative;
+      font-size: 10px; color: var(--text-mid); text-decoration: none;
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color .15s; position: relative;
     }
     .nav-links a::after {
-      content: '';
-      position: absolute; bottom: -4px; left: 0;
-      width: 0; height: 1px;
-      background: var(--teal);
-      box-shadow: 0 0 6px var(--teal);
-      transition: width .2s ease;
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px; background: var(--teal);
+      box-shadow: 0 0 6px var(--teal); transition: width .2s ease;
     }
     .nav-links a:hover { color: var(--teal); }
     .nav-links a:hover::after { width: 100%; }
 
-    /* ─── INTRO BAR ─── */
-    .intro {
-      padding: 28px 0;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .intro-line {
-      font-size: 11px;
-      color: var(--text-dim);
-      letter-spacing: 0.08em;
-    }
-    .intro-line::before {
-      content: '> ';
-      color: var(--red);
-    }
+    /* ─── INTRO ─── */
+    .intro { padding: 28px 0; border-bottom: 1px solid var(--border); }
+    .intro-line { font-size: 11px; color: var(--text-dim); letter-spacing: 0.08em; }
+    .intro-line::before { content: '> '; color: var(--red); }
 
     /* ─── SECTIONS ─── */
     section { padding: 44px 0; border-bottom: 1px solid var(--border); }
-    .section-header {
-      display: flex; align-items: baseline; justify-content: space-between;
-      margin-bottom: 24px;
-    }
+    .section-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 24px; }
     .section-title {
-      font-size: 10px; color: var(--red);
-      letter-spacing: 0.14em; text-transform: uppercase;
+      font-size: 10px; color: var(--red); letter-spacing: 0.14em; text-transform: uppercase;
       text-shadow: 0 0 10px rgba(255,32,80,0.4);
     }
-    .section-all {
-      font-size: 10px; color: var(--text-dim);
-      text-decoration: none; letter-spacing: 0.08em; transition: color .15s;
-    }
+    .section-all { font-size: 10px; color: var(--text-dim); text-decoration: none; letter-spacing: 0.08em; transition: color .15s; }
     .section-all:hover { color: var(--teal); }
 
     /* ─── TOOLS ─── */
@@ -169,43 +116,30 @@
       gap: 1px; background: var(--border); border: 1px solid var(--border);
     }
     .tool-card {
-      background: var(--bg); padding: 20px 22px;
-      text-decoration: none; display: block;
-      position: relative; overflow: hidden; transition: background .15s;
+      background: var(--bg); padding: 20px 22px; text-decoration: none;
+      display: block; position: relative; overflow: hidden; transition: background .15s;
     }
     .tool-card::after {
-      content: ''; position: absolute; bottom: 0; left: 0;
-      height: 1px; width: 0;
+      content: ''; position: absolute; bottom: 0; left: 0; height: 1px; width: 0;
       background: linear-gradient(90deg, var(--red), var(--teal));
-      box-shadow: 0 0 8px var(--red);
-      transition: width .25s ease;
+      box-shadow: 0 0 8px var(--red); transition: width .25s ease;
     }
     .tool-card:hover { background: var(--surface); }
     .tool-card:hover::after { width: 100%; }
     .tool-card:hover .tool-name { color: var(--teal); text-shadow: 0 0 10px rgba(0,240,216,.4); }
     .tool-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
     .tool-name { font-size: 13px; color: var(--text); transition: color .15s, text-shadow .15s; }
-    .tool-lang {
-      font-size: 9px; color: var(--teal);
-      border: 1px solid rgba(0,240,216,0.2); padding: 2px 6px; letter-spacing: .08em;
-    }
+    .tool-lang { font-size: 9px; color: var(--teal); border: 1px solid rgba(0,240,216,0.2); padding: 2px 6px; letter-spacing: .08em; }
     .tool-desc { font-size: 11px; color: var(--text-dim); line-height: 1.55; }
 
     /* ─── WRITING ─── */
-    /* category filter tabs */
-    .cat-tabs {
-      display: flex; gap: 2px;
-      margin-bottom: 20px;
-    }
+    .cat-tabs { display: flex; gap: 2px; margin-bottom: 20px; }
     .cat-tab {
       font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 4px 10px;
-      border: 1px solid var(--border);
-      color: var(--text-dim);
-      cursor: pointer;
+      padding: 4px 10px; border: 1px solid var(--border);
+      color: var(--text-dim); cursor: pointer;
       transition: color .15s, border-color .15s, background .15s;
-      background: transparent;
-      font-family: var(--mono);
+      background: transparent; font-family: var(--mono);
     }
     .cat-tab:hover { color: var(--text-mid); border-color: var(--border-mid); }
     .cat-tab.active { color: var(--teal); border-color: var(--teal); background: rgba(0,240,216,0.05); }
@@ -214,9 +148,7 @@
     .post-item {
       display: grid; grid-template-columns: 68px 1fr auto;
       gap: 0 16px; align-items: baseline;
-      padding: 12px 0; border-bottom: 1px solid var(--border);
-      text-decoration: none;
-      transition: opacity .15s;
+      padding: 12px 0; border-bottom: 1px solid var(--border); text-decoration: none;
     }
     .post-item.hidden { display: none; }
     .post-item:last-child { border-bottom: none; }
@@ -225,97 +157,62 @@
     .post-title { font-size: 12px; color: var(--text-mid); transition: color .15s; line-height: 1.4; }
     .post-tag { font-size: 9px; letter-spacing: .06em; text-transform: uppercase; }
     .post-tag.tutorial { color: var(--teal-dim); }
-    .post-tag.tool     { color: var(--red-dim); opacity: 0.9; }
+    .post-tag.tool     { color: var(--red-dim); }
     .post-tag.note     { color: var(--text-dim); }
+    .post-tag.security { color: #f0a020; }
 
     /* ─── REFERENCES TREE ─── */
-    .ref-tree { display: flex; flex-direction: column; gap: 0; }
-
+    .ref-tree { display: flex; flex-direction: column; }
     .ref-group { border-bottom: 1px solid var(--border); }
     .ref-group:last-child { border-bottom: none; }
 
     .ref-group-header {
       display: flex; align-items: center; gap: 10px;
-      padding: 12px 0;
-      cursor: pointer;
-      user-select: none;
+      padding: 12px 0; cursor: pointer; user-select: none;
     }
     .ref-group-header:hover .ref-group-name { color: var(--text); }
 
     .ref-toggle {
-      font-size: 10px; color: var(--red);
-      width: 14px; flex-shrink: 0;
-      transition: transform .2s;
-      display: inline-block;
+      font-size: 10px; color: var(--red); width: 14px; flex-shrink: 0;
+      transition: transform .2s; display: inline-block;
     }
     .ref-group.open .ref-toggle { transform: rotate(90deg); }
+    .ref-group-name { font-size: 11px; color: var(--text-mid); letter-spacing: 0.08em; text-transform: uppercase; transition: color .15s; }
+    .ref-group-count { font-size: 9px; color: var(--text-dim); margin-left: auto; }
 
-    .ref-group-name {
-      font-size: 11px; color: var(--text-mid);
-      letter-spacing: 0.08em; text-transform: uppercase;
-      transition: color .15s;
-    }
-
-    .ref-group-count {
-      font-size: 9px; color: var(--text-dim);
-      margin-left: auto;
-    }
-
-    .ref-items {
-      display: none;
-      flex-direction: column;
-      padding: 0 0 12px 24px;
-      gap: 0;
-    }
+    .ref-items { display: none; flex-direction: column; padding: 0 0 14px 24px; }
     .ref-group.open .ref-items { display: flex; }
 
     .ref-item {
       display: flex; align-items: baseline; gap: 10px;
-      padding: 7px 0;
-      border-bottom: 1px solid var(--border);
-      text-decoration: none;
+      padding: 7px 0; border-bottom: 1px solid var(--border); text-decoration: none;
     }
     .ref-item:last-child { border-bottom: none; }
-    .ref-item::before {
-      content: '├─';
-      font-size: 10px; color: var(--border-mid);
-      flex-shrink: 0;
-    }
+    .ref-item::before { content: '├─'; font-size: 10px; color: var(--border-mid); flex-shrink: 0; }
     .ref-item:last-child::before { content: '└─'; }
     .ref-item:hover .ref-item-title { color: var(--teal); }
-
-    .ref-item-title {
-      font-size: 12px; color: var(--text-mid);
-      transition: color .15s; line-height: 1.4; flex: 1;
-    }
+    .ref-item-title { font-size: 12px; color: var(--text-mid); transition: color .15s; line-height: 1.4; flex: 1; }
 
     /* ─── FOOTER ─── */
     footer { padding: 26px 0 42px; }
     .footer-inner { display: flex; align-items: center; justify-content: space-between; }
     .footer-sig { font-size: 10px; color: var(--text-dim); letter-spacing: .06em; }
     .footer-links { display: flex; gap: 20px; }
-    .footer-links a {
-      font-size: 10px; color: var(--text-dim); text-decoration: none;
-      letter-spacing: .06em; transition: color .15s;
-    }
+    .footer-links a { font-size: 10px; color: var(--text-dim); text-decoration: none; letter-spacing: .06em; transition: color .15s; }
     .footer-links a:hover { color: var(--teal); }
 
     .fade-in { opacity:0; transform:translateY(8px); animation:fi .4s ease forwards; }
     @keyframes fi { to { opacity:1; transform:translateY(0); } }
-    .fade-in:nth-child(1){animation-delay:.05s}
-    .fade-in:nth-child(2){animation-delay:.10s}
-    .fade-in:nth-child(3){animation-delay:.15s}
-    .fade-in:nth-child(4){animation-delay:.20s}
-    .fade-in:nth-child(5){animation-delay:.25s}
-    .fade-in:nth-child(6){animation-delay:.30s}
+    .fade-in:nth-child(1){animation-delay:.05s} .fade-in:nth-child(2){animation-delay:.10s}
+    .fade-in:nth-child(3){animation-delay:.15s} .fade-in:nth-child(4){animation-delay:.20s}
+    .fade-in:nth-child(5){animation-delay:.25s} .fade-in:nth-child(6){animation-delay:.30s}
 
     @media(max-width:560px){
       .tools-grid{grid-template-columns:1fr}
       .post-item{grid-template-columns:1fr;gap:3px}
       .post-date{display:none}
       .footer-inner{flex-direction:column;gap:12px;align-items:flex-start}
-      body{cursor:auto}
-      #cursor,#cursor-dot{display:none}
+      body{cursor:auto} #cursor,#cursor-dot{display:none}
     }
   </style>
 </head>
@@ -352,29 +249,29 @@
         <a href="https://github.com/martysama0134" class="section-all" target="_blank">all on github →</a>
       </div>
       <div class="tools-grid">
-        <a href="#" class="tool-card fade-in">
+        <a href="https://github.com/martysama0134/how-to-mt2-general/tree/master/eter-group-parser" target="_blank" class="tool-card fade-in">
           <div class="tool-header"><span class="tool-name">eter-group-parser</span><span class="tool-lang">python</span></div>
-          <p class="tool-desc">Parser for EterGroup config files used in game server modding.</p>
+          <p class="tool-desc">Parser for EterGroup config files. Handles MSM, drop tables, event files and more.</p>
         </a>
-        <a href="#" class="tool-card fade-in">
+        <a href="https://github.com/martysama0134/how-to-mt2-general/tree/master/pysockapi" target="_blank" class="tool-card fade-in">
           <div class="tool-header"><span class="tool-name">pysockapi</span><span class="tool-lang">python</span></div>
           <p class="tool-desc">Minimal socket API wrapper for quick server communication scripting.</p>
         </a>
-        <a href="#" class="tool-card fade-in">
+        <a href="https://github.com/martysama0134/how-to-mt2-general/tree/master/xtea-keys-generator" target="_blank" class="tool-card fade-in">
           <div class="tool-header"><span class="tool-name">xtea-keys-generator</span><span class="tool-lang">python</span></div>
           <p class="tool-desc">Generates XTEA encryption key sets. Single script, zero deps.</p>
         </a>
-        <a href="#" class="tool-card fade-in">
+        <a href="https://github.com/martysama0134/how-to-mt2-general/tree/master/sequence-generator" target="_blank" class="tool-card fade-in">
           <div class="tool-header"><span class="tool-name">sequence-generator</span><span class="tool-lang">python</span></div>
           <p class="tool-desc">Sequence file generator utility. Pipe-friendly batch tool.</p>
         </a>
-        <a href="#" class="tool-card fade-in">
+        <a href="https://github.com/martysama0134/how-to-mt2-general/tree/master/pack-cleaning" target="_blank" class="tool-card fade-in">
           <div class="tool-header"><span class="tool-name">pack-cleaning</span><span class="tool-lang">python</span></div>
-          <p class="tool-desc">Pack file utilities — find duplicates, merge, generate indexes, clean.</p>
+          <p class="tool-desc">Pack file utilities — find duplicates, merge, generate indexes, clean empty folders.</p>
         </a>
-        <a href="#" class="tool-card fade-in">
+        <a href="https://github.com/martysama0134/how-to-mt2-general/tree/master/client-pylib-check" target="_blank" class="tool-card fade-in">
           <div class="tool-header"><span class="tool-name">client-pylib-check</span><span class="tool-lang">cpp</span></div>
-          <p class="tool-desc">Client-side Python library integrity checker. Generator + source patch.</p>
+          <p class="tool-desc">Client-side Python library integrity checker. Generator + source patch included.</p>
         </a>
       </div>
     </section>
@@ -389,50 +286,20 @@
       <div class="cat-tabs">
         <button class="cat-tab active" data-cat="all">all</button>
         <button class="cat-tab" data-cat="tutorial">tutorial</button>
-        <button class="cat-tab" data-cat="tool">tool</button>
+        <button class="cat-tab" data-cat="security">security</button>
         <button class="cat-tab" data-cat="note">note</button>
       </div>
 
       <div class="post-list">
-        <a href="#" class="post-item" data-cat="tutorial">
-          <span class="post-date">jan 2025</span>
-          <span class="post-title">How to compile .sln from command line</span>
-          <span class="post-tag tutorial">tutorial</span>
-        </a>
-        <a href="#" class="post-item" data-cat="tutorial">
-          <span class="post-date">dec 2024</span>
-          <span class="post-title">How to manually debug crashes with Visual Studio</span>
-          <span class="post-tag tutorial">tutorial</span>
-        </a>
-        <a href="#" class="post-item" data-cat="tutorial">
-          <span class="post-date">nov 2024</span>
-          <span class="post-title">How to recalculate MySQL item IDs</span>
-          <span class="post-tag tutorial">tutorial</span>
-        </a>
-        <a href="#" class="post-item" data-cat="tutorial">
-          <span class="post-date">oct 2024</span>
-          <span class="post-title">How to translate source strings</span>
-          <span class="post-tag tutorial">tutorial</span>
-        </a>
-        <a href="#" class="post-item" data-cat="tool">
-          <span class="post-date">sep 2024</span>
-          <span class="post-title">How to use makepack type 4</span>
-          <span class="post-tag tool">tool</span>
-        </a>
-        <a href="#" class="post-item" data-cat="tutorial">
-          <span class="post-date">aug 2024</span>
-          <span class="post-title">How to add colored quest scrolls</span>
-          <span class="post-tag tutorial">tutorial</span>
-        </a>
-        <a href="#" class="post-item" data-cat="tool">
-          <span class="post-date">jul 2024</span>
-          <span class="post-title">Quest syntax highlighting setup</span>
-          <span class="post-tag tool">tool</span>
-        </a>
         <a href="#" class="post-item" data-cat="note">
-          <span class="post-date">jun 2024</span>
-          <span class="post-title">WorldEditor DPI fix</span>
+          <span class="post-date">mar 2025</span>
+          <span class="post-title">Welcome — what this site is and how it's organized</span>
           <span class="post-tag note">note</span>
+        </a>
+        <a href="#" class="post-item" data-cat="security">
+          <span class="post-date">feb 2025</span>
+          <span class="post-title">Common server-side vulnerabilities and how to patch them</span>
+          <span class="post-tag security">security</span>
         </a>
       </div>
     </section>
@@ -445,47 +312,69 @@
 
       <div class="ref-tree">
 
+        <!-- M2 -->
+        <div class="ref-group open">
+          <div class="ref-group-header">
+            <span class="ref-toggle">▶</span>
+            <span class="ref-group-name">m2</span>
+            <span class="ref-group-count">8 entries</span>
+          </div>
+          <div class="ref-items">
+            <a href="https://github.com/martysama0134/how-to-mt2-general/tree/master/how-to-colored-quest-scrolls" target="_blank" class="ref-item"><span class="ref-item-title">how to add colored quest scrolls</span></a>
+            <a href="https://github.com/martysama0134/how-to-mt2-general/tree/master/how-to-compile-sln-from-command-line" target="_blank" class="ref-item"><span class="ref-item-title">how to compile .sln from command line</span></a>
+            <a href="https://github.com/martysama0134/how-to-mt2-general/tree/master/how-to-makepack-type4" target="_blank" class="ref-item"><span class="ref-item-title">how to use makepack type 4</span></a>
+            <a href="https://github.com/martysama0134/how-to-mt2-general/tree/master/how-to-manually-debug-crashes-with-vs" target="_blank" class="ref-item"><span class="ref-item-title">how to manually debug crashes with visual studio</span></a>
+            <a href="https://github.com/martysama0134/how-to-mt2-general/tree/master/how-to-recalculate-mysql-item-ids" target="_blank" class="ref-item"><span class="ref-item-title">how to recalculate mysql item ids</span></a>
+            <a href="https://github.com/martysama0134/how-to-mt2-general/tree/master/how-to-translate-source-strings" target="_blank" class="ref-item"><span class="ref-item-title">how to translate source strings</span></a>
+            <a href="https://github.com/martysama0134/how-to-mt2-general/tree/master/quest-syntax-highlighting" target="_blank" class="ref-item"><span class="ref-item-title">quest syntax highlighting setup</span></a>
+            <a href="https://github.com/martysama0134/how-to-mt2-general/tree/master/worldeditor-dpi-fix" target="_blank" class="ref-item"><span class="ref-item-title">worldeditor dpi fix</span></a>
+          </div>
+        </div>
+
+        <!-- FreeBSD -->
         <div class="ref-group open">
           <div class="ref-group-header">
             <span class="ref-toggle">▶</span>
             <span class="ref-group-name">freebsd</span>
-            <span class="ref-group-count">9 notes</span>
+            <span class="ref-group-count">9 entries</span>
           </div>
           <div class="ref-items">
-            <a href="#" class="ref-item"><span class="ref-item-title">how to analyze a core dump</span></a>
-            <a href="#" class="ref-item"><span class="ref-item-title">how to clear the console like cls on windows</span></a>
-            <a href="#" class="ref-item"><span class="ref-item-title">how to create a vbox to deploy</span></a>
-            <a href="#" class="ref-item"><span class="ref-item-title">how to create and setup an ssh key</span></a>
-            <a href="#" class="ref-item"><span class="ref-item-title">how to disable sendmail</span></a>
-            <a href="#" class="ref-item"><span class="ref-item-title">how to load the ipfw rules</span></a>
-            <a href="#" class="ref-item"><span class="ref-item-title">how to setup a quick 32bit jail</span></a>
-            <a href="#" class="ref-item"><span class="ref-item-title">mysql things</span></a>
-            <a href="#" class="ref-item"><span class="ref-item-title">ssh things</span></a>
+            <a href="https://github.com/martysama0134/how-to-general/blob/master/freebsd-tips/how-to-analyze-a-core-dump.md" target="_blank" class="ref-item"><span class="ref-item-title">how to analyze a core dump</span></a>
+            <a href="https://github.com/martysama0134/how-to-general/blob/master/freebsd-tips/how-to-clear-the-console-like-cls-on-windows.md" target="_blank" class="ref-item"><span class="ref-item-title">how to clear the console like cls on windows</span></a>
+            <a href="https://github.com/martysama0134/how-to-general/blob/master/freebsd-tips/how-to-create-a-vbox-to-deploy.md" target="_blank" class="ref-item"><span class="ref-item-title">how to create a vbox to deploy</span></a>
+            <a href="https://github.com/martysama0134/how-to-general/blob/master/freebsd-tips/how-to-create-and-setup-an-ssh-key.md" target="_blank" class="ref-item"><span class="ref-item-title">how to create and setup an ssh key</span></a>
+            <a href="https://github.com/martysama0134/how-to-general/blob/master/freebsd-tips/how-to-disable-sendmail.md" target="_blank" class="ref-item"><span class="ref-item-title">how to disable sendmail</span></a>
+            <a href="https://github.com/martysama0134/how-to-general/blob/master/freebsd-tips/how-to-fix-the-new-pkg-in-fbsd-9.md" target="_blank" class="ref-item"><span class="ref-item-title">how to fix the new pkg in fbsd 9</span></a>
+            <a href="https://github.com/martysama0134/how-to-general/blob/master/freebsd-tips/how-to-fix-the-pkg-in-new-fbsd-versions.md" target="_blank" class="ref-item"><span class="ref-item-title">how to fix the pkg in new fbsd versions</span></a>
+            <a href="https://github.com/martysama0134/how-to-general/blob/master/freebsd-tips/how-to-load-the-ipfw-rules.md" target="_blank" class="ref-item"><span class="ref-item-title">how to load the ipfw rules</span></a>
+            <a href="https://github.com/martysama0134/how-to-general/blob/master/freebsd-tips/how-to-setup-a-quick-32bit-jail.md" target="_blank" class="ref-item"><span class="ref-item-title">how to setup a quick 32bit jail</span></a>
           </div>
         </div>
 
-        <div class="ref-group">
+        <!-- Windows -->
+        <div class="ref-group open">
           <div class="ref-group-header">
             <span class="ref-toggle">▶</span>
             <span class="ref-group-name">windows</span>
-            <span class="ref-group-count">4 notes</span>
+            <span class="ref-group-count">4 entries</span>
           </div>
           <div class="ref-items">
-            <a href="#" class="ref-item"><span class="ref-item-title">how to automatically open a list of folders from batch</span></a>
-            <a href="#" class="ref-item"><span class="ref-item-title">how to mount a virtual drive letter from a folder</span></a>
-            <a href="#" class="ref-item"><span class="ref-item-title">notepad++ tips</span></a>
-            <a href="#" class="ref-item"><span class="ref-item-title">winscp tips</span></a>
+            <a href="https://github.com/martysama0134/how-to-general/blob/master/windows-tips/how-to-automatically-open-a-list-of-folders-from-batch.md" target="_blank" class="ref-item"><span class="ref-item-title">how to automatically open a list of folders from batch</span></a>
+            <a href="https://github.com/martysama0134/how-to-general/blob/master/windows-tips/how-to-mount-a-virtual-drive-letter-from-a-folder.md" target="_blank" class="ref-item"><span class="ref-item-title">how to mount a virtual drive letter from a folder</span></a>
+            <a href="https://github.com/martysama0134/how-to-general/blob/master/windows-tips/notepadpp-tips.md" target="_blank" class="ref-item"><span class="ref-item-title">notepad++ tips</span></a>
+            <a href="https://github.com/martysama0134/how-to-general/blob/master/windows-tips/winscp-tips.md" target="_blank" class="ref-item"><span class="ref-item-title">winscp tips</span></a>
           </div>
         </div>
 
-        <div class="ref-group">
+        <!-- Git -->
+        <div class="ref-group open">
           <div class="ref-group-header">
             <span class="ref-toggle">▶</span>
             <span class="ref-group-name">git</span>
-            <span class="ref-group-count">1 note</span>
+            <span class="ref-group-count">1 entry</span>
           </div>
           <div class="ref-items">
-            <a href="#" class="ref-item"><span class="ref-item-title">tips & tricks</span></a>
+            <a href="https://github.com/martysama0134/how-to-general/tree/master/git-tips" target="_blank" class="ref-item"><span class="ref-item-title">tips & tricks</span></a>
           </div>
         </div>
 
@@ -497,9 +386,11 @@
 
 <footer>
   <div class="container footer-inner">
-    <div class="footer-sig">martysama</div>
+    <div class="footer-sig">martysama // github pages</div>
     <div class="footer-links">
       <a href="https://github.com/martysama0134" target="_blank">github</a>
+      <a href="mailto:hey@martysama.dev">email</a>
+      <a href="#">rss</a>
     </div>
   </div>
 </footer>
@@ -512,22 +403,19 @@
   const FONT = 13;
   const CHARS = 'アイウエオカキクケコサシスセソ01ABCDEF><{}[]|/\\';
   let W, H, cols, drops;
-
   function init(){
     W = canvas.width  = window.innerWidth;
     H = canvas.height = window.innerHeight;
     cols  = Math.floor(W / FONT);
     drops = Array.from({length:cols}, () => Math.random() * -(H/FONT));
   }
-
   function draw(){
     ctx.fillStyle = 'rgba(16,5,8,0.2)';
     ctx.fillRect(0,0,W,H);
     ctx.font = `${FONT}px 'Departure Mono', monospace`;
     for(let i=0; i<cols; i++){
       const char = CHARS[Math.floor(Math.random()*CHARS.length)];
-      const x = i * FONT;
-      const y = drops[i] * FONT;
+      const x = i * FONT, y = drops[i] * FONT;
       const t = i/cols;
       const h = Math.round(345 - t*170);
       ctx.fillStyle = (drops[i]>1 && Math.random()>.85) ? '#fff' : `hsl(${h},90%,62%)`;
@@ -536,7 +424,6 @@
       drops[i] += 0.45 + Math.random()*0.3;
     }
   }
-
   init();
   window.addEventListener('resize', init);
   setInterval(draw, 48);
@@ -546,60 +433,26 @@
 const cursor = document.getElementById('cursor');
 const dot    = document.getElementById('cursor-dot');
 let mx=-100, my=-100, cx=-100, cy=-100;
-document.addEventListener('mousemove', e=>{
-  mx=e.clientX; my=e.clientY;
-  dot.style.left=mx+'px'; dot.style.top=my+'px';
-});
+document.addEventListener('mousemove', e=>{ mx=e.clientX; my=e.clientY; dot.style.left=mx+'px'; dot.style.top=my+'px'; });
 document.querySelectorAll('a,button').forEach(el=>{
   el.addEventListener('mouseenter',()=>cursor.classList.add('hover'));
   el.addEventListener('mouseleave',()=>cursor.classList.remove('hover'));
 });
-(function tick(){
-  cx+=(mx-cx)*.12; cy+=(my-cy)*.12;
-  cursor.style.left=cx+'px'; cursor.style.top=cy+'px';
-  requestAnimationFrame(tick);
-})();
+(function tick(){ cx+=(mx-cx)*.12; cy+=(my-cy)*.12; cursor.style.left=cx+'px'; cursor.style.top=cy+'px'; requestAnimationFrame(tick); })();
 
 // ─── PARTICLE TRAIL ───
-const tc   = document.getElementById('trail-canvas');
-const tctx = tc.getContext('2d');
+const tc=document.getElementById('trail-canvas'), tctx=tc.getContext('2d');
 tc.width=window.innerWidth; tc.height=window.innerHeight;
 window.addEventListener('resize',()=>{ tc.width=window.innerWidth; tc.height=window.innerHeight; });
 const particles=[];
 class P{
-  constructor(x,y){
-    this.x=x; this.y=y;
-    this.vx=(Math.random()-.5)*1.8; this.vy=(Math.random()-.5)*1.8-.4;
-    this.life=1; this.decay=.024+Math.random()*.03;
-    this.rgb=Math.random()>.5?'255,32,80':'0,240,216';
-    this.sz=1+Math.random()*2;
-  }
+  constructor(x,y){ this.x=x; this.y=y; this.vx=(Math.random()-.5)*1.8; this.vy=(Math.random()-.5)*1.8-.4; this.life=1; this.decay=.024+Math.random()*.03; this.rgb=Math.random()>.5?'255,32,80':'0,240,216'; this.sz=1+Math.random()*2; }
   update(){ this.x+=this.vx; this.y+=this.vy; this.life-=this.decay; }
-  draw(){
-    tctx.save();
-    tctx.globalAlpha=this.life*.8;
-    tctx.shadowBlur=8; tctx.shadowColor=`rgba(${this.rgb},1)`;
-    tctx.fillStyle=`rgba(${this.rgb},${this.life})`;
-    tctx.fillRect(this.x,this.y,this.sz,this.sz);
-    tctx.restore();
-  }
+  draw(){ tctx.save(); tctx.globalAlpha=this.life*.8; tctx.shadowBlur=8; tctx.shadowColor=`rgba(${this.rgb},1)`; tctx.fillStyle=`rgba(${this.rgb},${this.life})`; tctx.fillRect(this.x,this.y,this.sz,this.sz); tctx.restore(); }
 }
 let lx=0,ly=0;
-document.addEventListener('mousemove',e=>{
-  const dx=e.clientX-lx, dy=e.clientY-ly;
-  if(Math.sqrt(dx*dx+dy*dy)>4){
-    for(let i=0;i<4;i++) particles.push(new P(e.clientX,e.clientY));
-    lx=e.clientX; ly=e.clientY;
-  }
-});
-(function loop(){
-  tctx.clearRect(0,0,tc.width,tc.height);
-  for(let i=particles.length-1;i>=0;i--){
-    particles[i].update(); particles[i].draw();
-    if(particles[i].life<=0) particles.splice(i,1);
-  }
-  requestAnimationFrame(loop);
-})();
+document.addEventListener('mousemove',e=>{ const dx=e.clientX-lx,dy=e.clientY-ly; if(Math.sqrt(dx*dx+dy*dy)>4){ for(let i=0;i<4;i++) particles.push(new P(e.clientX,e.clientY)); lx=e.clientX; ly=e.clientY; } });
+(function loop(){ tctx.clearRect(0,0,tc.width,tc.height); for(let i=particles.length-1;i>=0;i--){ particles[i].update(); particles[i].draw(); if(particles[i].life<=0) particles.splice(i,1); } requestAnimationFrame(loop); })();
 
 // ─── CATEGORY FILTER ───
 const tabs = document.querySelectorAll('.cat-tab');
@@ -609,21 +462,13 @@ tabs.forEach(tab => {
     tabs.forEach(t => t.classList.remove('active'));
     tab.classList.add('active');
     const cat = tab.dataset.cat;
-    posts.forEach(post => {
-      if(cat === 'all' || post.dataset.cat === cat){
-        post.classList.remove('hidden');
-      } else {
-        post.classList.add('hidden');
-      }
-    });
+    posts.forEach(post => { post.classList.toggle('hidden', cat !== 'all' && post.dataset.cat !== cat); });
   });
 });
 
 // ─── REFERENCE TREE TOGGLE ───
 document.querySelectorAll('.ref-group-header').forEach(header => {
-  header.addEventListener('click', () => {
-    header.parentElement.classList.toggle('open');
-  });
+  header.addEventListener('click', () => { header.parentElement.classList.toggle('open'); });
 });
 </script>
 </body>
